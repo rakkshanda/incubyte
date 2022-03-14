@@ -1,9 +1,15 @@
-
     function newLine(string){
-        let stringSpilt = string.split( /,|\n/);
-        const numbers= stringSpilt.map(Number);
-        return numbers;
+        let delimiter = /,|\n/;
+     
+        if (string.startsWith('//')) {
+          const index= string.indexOf('\n');
+          delimiter = string.slice(2, index);
+          newString = string.slice(indexOfNewLine);
+        }
     
+        const stringSpilt = newString.split(delimiter);
+        return stringSpilt.map(Number);       
+   
       }
     
   function add(string){
@@ -16,4 +22,4 @@ return sum(newLine(string));
 
       
 console.log(add("1,3,8"))
-document.getElementById("1").innerHTML = add("1\n 3");
+document.getElementById("1").innerHTML = add("//;\n1;2");
